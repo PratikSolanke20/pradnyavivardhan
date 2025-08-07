@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Pradnya Vivardhan School</title>
+  <meta name="description" content="Official website of Pradnya Vivardhan School - nurturing excellence in education.">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and base styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', Arial, sans-serif; }
+    body { background: #f4f7fa; color: #222; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    /* Header and Navigation */
+    header { background: #1a237e; color: #fff; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.08);}
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .logo { font-size: 2rem; font-weight: 700; letter-spacing: 2px; padding: 1rem 0; }
+    nav { display: flex; align-items: center; }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul li { position: relative; }
+    nav ul li a { padding: 1rem 0.5rem; display: block; transition: color 0.2s; }
+    nav ul li:hover > a { color: #ffb300; }
+    nav ul ul { display: none; position: absolute; top: 100%; left: 0; background: #fff; color: #222; min-width: 180px; box-shadow: 0 8px 24px rgba(26,35,126,0.08); border-radius: 0 0 8px 8px; }
+    nav ul li:hover > ul { display: block; }
+    nav ul ul li a { color: #222; padding: 0.75rem 1rem; }
+    nav ul ul li a:hover { background: #f5f5f5; color: #1a237e; }
+    .nav-actions { margin-left: auto; }
+    .btn-inquiry { background: #ffb300; color: #222; border: none; padding: 0.6rem 1.2rem; border-radius: 4px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+    .btn-inquiry:hover { background: #ffa000; }
+    /* Hero Section */
+    .hero { background: linear-gradient(120deg, #1a237e 60%, #ffb300 100%); color: #fff; min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 6rem; }
+    .hero-content { max-width: 700px; margin: auto; }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; font-weight: 700; }
+    .hero p { font-size: 1.25rem; margin-bottom: 2rem; }
+    .hero .btn-inquiry { font-size: 1.1rem; }
+    /* Section Styles */
+    section { padding: 4rem 0; }
+    .section-title { font-size: 2rem; font-weight: 700; color: #1a237e; margin-bottom: 2rem; text-align: center; }
+    /* Principal Section */
+    .principal-section { display: flex; gap: 2.5rem; align-items: center; justify-content: center; flex-wrap: wrap; background: #fff; border-radius: 12px; box-shadow: 0 4px 24px rgba(26,35,126,0.06); padding: 2rem; max-width: 900px; margin: 2rem auto; }
+    .principal-photo { flex: 1 1 250px; max-width: 280px; }
+    .principal-photo img { border-radius: 12px; box-shadow: 0 2px 12px rgba(26,35,126,0.08); }
+    .principal-info { flex: 2 1 350px; }
+    .principal-info h2 { color: #1a237e; font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .principal-info p { font-size: 1.1rem; }
+    /* Admission Inquiry Modal */
+    .modal-bg { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(26,35,126,0.15); z-index: 2000; align-items: center; justify-content: center; }
+    .modal { background: #fff; border-radius: 10px; max-width: 420px; width: 95%; padding: 2rem; box-shadow: 0 8px 32px rgba(26,35,126,0.18); position: relative; }
+    .modal h2 { color: #1a237e; margin-bottom: 1rem; }
+    .modal form { display: flex; flex-direction: column; gap: 1rem; }
+    .modal input, .modal textarea { padding: 0.7rem; border: 1px solid #bdbdbd; border-radius: 4px; font-size: 1rem; }
+    .modal button[type="submit"] { background: #1a237e; color: #fff; border: none; padding: 0.8rem; border-radius: 4px; font-weight: 600; cursor: pointer; }
+    .modal button[type="submit"]:hover { background: #3949ab; }
+    .modal .close-modal { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; color: #1a237e; cursor: pointer; }
+    .modal .success-msg { color: #388e3c; font-weight: 600; margin-top: 1rem; }
+    /* Footer */
+    footer { background: #1a237e; color: #fff; padding: 2.5rem 0 0.5rem 0; }
+    .footer-content { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-start; max-width: 1200px; margin: auto; }
+    .footer-section { flex: 1 1 220px; }
+    .footer-section h3 { color: #ffb300; margin-bottom: 1rem; }
+    .footer-section ul { list-style: none; }
+    .footer-section ul li { margin-bottom: 0.5rem; }
+    .footer-section ul li a { color: #fff; transition: color 0.2s; }
+    .footer-section ul li a:hover { color: #ffb300; }
+    .footer-map { flex: 2 1 350px; min-width: 300px; }
+    .footer-map iframe { width: 100%; height: 220px; border: none; border-radius: 8px; }
+    .footer-bottom { text-align: center; color: #bdbdbd; font-size: 0.95rem; margin-top: 2rem; }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .principal-section { flex-direction: column; text-align: center; }
+      .footer-content { flex-direction: column; gap: 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .section-title { font-size: 1.3rem; }
+      .principal-photo { max-width: 180px; }
+      .modal { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container" style="display:flex;align-items:center;">
+      <div class="logo">Pradnya Vivardhan</div>
+      <nav style="flex:1;">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li>
+            <a href="#">About</a>
+            <ul>
+              <li><a href="#vision">Vision & Mission</a></li>
+              <li><a href="#principal">Principal's Desk</a></li>
+              <li><a href="#history">History</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Academics</a>
+            <ul>
+              <li><a href="#curriculum">Curriculum</a></li>
+              <li><a href="#faculty">Faculty</a></li>
+              <li><a href="#achievements">Achievements</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Admissions</a>
+            <ul>
+              <li><a href="#admission-process">Admission Process</a></li>
+              <li><a href="#fees">Fees Structure</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn-inquiry" id="openInquiryBtn">Admission Inquiry</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Welcome to Pradnya Vivardhan School</h1>
+      <p>Empowering students to achieve academic excellence and holistic development in a nurturing environment.</p>
+      <button class="btn-inquiry" id="openInquiryBtn2">Admission Inquiry</button>
+    </div>
+  </section>
+
+  <!-- Vision & Mission -->
+  <section id="vision">
+    <div class="container">
+      <h2 class="section-title">Our Vision & Mission</h2>
+      <p style="max-width:800px;margin:auto;text-align:center;">
+        <b>Vision:</b> To be a center of excellence in education, fostering lifelong learning and responsible citizenship.<br>
+        <b>Mission:</b> To provide a safe, inclusive, and stimulating environment where every child is encouraged to reach their full potential academically, socially, and emotionally.
+      </p>
+    </div>
+  </section>
+
+  <!-- Principal's Desk -->
+  <section id="principal">
+    <div class="container">
+      <h2 class="section-title">From the Principal's Desk</h2>
+      <div class="principal-section">
+        <div class="principal-photo">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Principal Photo">
+        </div>
+        <div class="principal-info">
+          <h2>Dr. Deepmala Manke</h2>
+          <p>
+            <b>Principal, Pradnya Vivardhan School</b><br>
+            Welcome to Pradnya Vivardhan School! Our commitment is to nurture young minds and empower them with knowledge, values, and skills for a bright future. We believe in holistic education that balances academics, sports, arts, and character building. Join us in our journey to inspire and create leaders of tomorrow.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Academics -->
+  <section id="curriculum">
+    <div class="container">
+      <h2 class="section-title">Academics & Curriculum</h2>
+      <p style="max-width:800px;margin:auto;text-align:center;">
+        Our curriculum is designed to foster critical thinking, creativity, and a love for learning. We offer a wide range of subjects and co-curricular activities, guided by experienced faculty and modern teaching methodologies.
+      </p>
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <section id="achievements">
+    <div class="container">
+      <h2 class="section-title">Achievements</h2>
+      <ul style="max-width:700px;margin:auto;list-style:disc inside;">
+        <li>100% Board Results for the last 5 years</li>
+        <li>State-level Science Olympiad Winners</li>
+        <li>National Sports Meet Finalists</li>
+        <li>Best School Award (2024) by City Education Board</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Admission Process -->
+  <section id="admission-process">
+    <div class="container">
+      <h2 class="section-title">Admission Process</h2>
+      <ol style="max-width:700px;margin:auto;">
+        <li>Fill out the online admission inquiry form.</li>
+        <li>School will contact you for document verification and interaction.</li>
+        <li>Pay the admission fees and confirm your seat.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <div style="max-width:700px;margin:auto;text-align:center;">
+        <p><b>Address:</b> 123 Knowledge Avenue, Pune, Maharashtra, India</p>
+        <p><b>Email:</b> info@pradnyavivardhan.edu.in | <b>Phone:</b> +91 98765 43210</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Admission Inquiry Modal -->
+  <div class="modal-bg" id="inquiryModalBg">
+    <div class="modal">
+      <button class="close-modal" id="closeModalBtn" title="Close">&times;</button>
+      <h2>Admission Inquiry</h2>
+      <form id="inquiryForm">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <input type="text" name="child_name" placeholder="Child's Name" required>
+        <input type="number" name="child_age" placeholder="Child's Age" required min="2" max="18">
+        <textarea name="message" rows="3" placeholder="Your Message / Query" required></textarea>
+        <button type="submit">Submit Inquiry</button>
+        <div class="success-msg" id="successMsg" style="display:none;">Thank you! Your inquiry has been submitted.</div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content container">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#vision">Vision & Mission</a></li>
+          <li><a href="#principal">Principal's Desk</a></li>
+          <li><a href="#curriculum">Academics</a></li>
+          <li><a href="#admission-process">Admissions</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <ul>
+          <li>123 Knowledge Avenue, Pune</li>
+          <li>info@pradnyavivardhan.edu.in</li>
+          <li>+91 98765 43210</li>
+        </ul>
+      </div>
+      <div class="footer-map">
+        <h3>Find Us</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.019708505034!2d73.85674331536344!3d18.52043068740695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c06c2b2e2b2b%3A0x7e4f7e4e4e4e4e4e!2sPune%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Pradnya Vivardhan School. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- JavaScript for Modal and Google Sheets Integration -->
+  <script>
+    // Modal open/close logic
+    const openBtns = [document.getElementById('openInquiryBtn'), document.getElementById('openInquiryBtn2')];
+    const modalBg = document.getElementById('inquiryModalBg');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    openBtns.forEach(btn => btn && btn.addEventListener('click', () => { modalBg.style.display = 'flex'; }));
+    closeModalBtn.addEventListener('click', () => { modalBg.style.display = 'none'; });
+    window.onclick = function(event) { if(event.target === modalBg) modalBg.style.display = 'none'; };
+
+    // Google Sheets Integration (via Google Apps Script Web App)
+    // You must deploy a Google Apps Script as a Web App to handle POST requests and write to your sheet.
+    // Replace the URL below with your deployed Web App URL.
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw0vQv1kQw6Qn2w5w5w5w5w5w5w5w5w5w5w5w5w5w5w5w5w5w5w5w5w5w5w/exec'; // <-- Replace with your Apps Script Web App URL
+
+    const inquiryForm = document.getElementById('inquiryForm');
+    const successMsg = document.getElementById('successMsg');
+    inquiryForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(inquiryForm);
+      fetch(scriptURL, { method: 'POST', body: formData })
+        .then(response => {
+          inquiryForm.reset();
+          successMsg.style.display = 'block';
+          setTimeout(() => {
+            successMsg.style.display = 'none';
+            modalBg.style.display = 'none';
+          }, 2000);
+        })
+        .catch(error => {
+          alert('There was an error submitting your inquiry. Please try again later.');
+        });
+    });
+  </script>
+</body>
+</html>
