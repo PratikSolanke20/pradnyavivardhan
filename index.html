@@ -209,7 +209,8 @@
     <div class="modal">
       <button class="close-modal" id="closeModalBtn" title="Close">&times;</button>
       <h2>Admission Inquiry</h2>
-      <form id="inquiryForm">
+      <form id="inquiryForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="86bc9658-de17-4c04-8d92-5ee46cd5bd65">
         <input type="text" name="name" placeholder="Full Name" required>
         <input type="email" name="email" placeholder="Email Address" required>
         <input type="tel" name="phone" placeholder="Phone Number" required>
