@@ -209,8 +209,7 @@
     <div class="modal">
       <button class="close-modal" id="closeModalBtn" title="Close">&times;</button>
       <h2>Admission Inquiry</h2>
-      <form action="https://api.web3forms.com/submit" method="POST" id="inquiryForm">
-        <input type="hidden" name="access_key" value="86bc9658-de17-4c04-8d92-5ee46cd5bd65">
+      <form id="inquiryForm">
         <input type="text" name="full_name" placeholder="Full Name" required>
         <input type="email" name="email" placeholder="Email Address" required>
         <input type="tel" name="phone" placeholder="Phone Number" required>
@@ -218,6 +217,7 @@
         <input type="number" name="child_age" placeholder="Child's Age" required min="2" max="18">
         <textarea name="message" rows="3" placeholder="Your Message / Query" required></textarea>
         <button type="submit">Submit Inquiry</button>
+        
       </form>
     </div>
   </div>
